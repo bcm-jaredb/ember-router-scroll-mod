@@ -55,11 +55,7 @@ function tryScrollRecursively(fn, scrollHash, element, url) {
     // write DOM (scrollTo causes reflow)
     if (documentHeight >= scrollHash.y || ATTEMPTS >= MAX_ATTEMPTS) {
       ATTEMPTS = 0;
-      scrollTo({
-        top: scrollHash.y,
-        left: scrollHash.x,
-        behavior: 'instant'
-      });
+      fn.call(null, scrollHash.x, scrollHash.y);
     } else {
       ATTEMPTS++;
       tryScrollRecursively(fn, scrollHash, element, url);
