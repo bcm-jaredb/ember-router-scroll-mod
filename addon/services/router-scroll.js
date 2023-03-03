@@ -58,7 +58,7 @@ function tryScrollRecursively(fn, scrollHash, element, url) {
       window.scrollTo({
         top: scrollHash.y,
         left: scrollHash.x,
-        behavior: 'auto'
+        behavior: 'instant'
       });
     } else {
       ATTEMPTS++;
